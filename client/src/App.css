@@ -267,3 +267,11 @@ h1 {
     border-radius: 0;
   }
 }
+
+em-emoji-picker {
+  position: absolute;
+  left: 5px;
+  bottom: 55px;
+  width: 300px;
+  border: 0;
+}

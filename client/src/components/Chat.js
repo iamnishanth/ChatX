@@ -1,8 +1,11 @@
 import { useEffect, useState, useRef } from "react";
-import { Emoji, Picker } from "emoji-mart";
+import data from "@emoji-mart/data";
+import { init } from "emoji-mart";
+import Picker from "@emoji-mart/react";
 import ChatBubble from "./ChatBubble";
-import "emoji-mart/css/emoji-mart.css";
 import ChatHeader from "./ChatHeader";
+
+init({ data });
 
 const Chat = ({ socket, username, room }) => {
   const [currentMessage, setCurrentMessage] = useState("");
@@ -84,22 +87,16 @@ const Chat = ({ socket, username, room }) => {
             setShowEmojiPicker(!showEmojiPicker);
           }}
         >
-          <Emoji emoji={{ id: "blush", skin: 3 }} size={24} />
+          <em-emoji id="blush" size="24" skin="3"></em-emoji>
+          {/* <Emoji emoji={{ id: "blush", skin: 3 }} size={24} /> */}
         </button>
         {showEmojiPicker && (
           <Picker
-            set="apple"
+            data={data}
             theme="dark"
             showPreview={false}
             showSkinTones={false}
-            style={{
-              position: "absolute",
-              left: "5px",
-              bottom: "55px",
-              width: "300px",
-              border: "0",
-            }}
-            onSelect={onEmojiClick}
+            onEmojiSelect={onEmojiClick}
           />
         )}
         <input
