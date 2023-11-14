@@ -3,7 +3,7 @@ import { useState } from "react";
 import io from "socket.io-client";
 import Chat from "./components/Chat";
 
-const socket = io.connect("https://chatx-backend.herokuapp.com/");
+const socket = io.connect("https://chatx-dop2.onrender.com");
 
 const App = () => {
   const [username, setUsername] = useState("");
